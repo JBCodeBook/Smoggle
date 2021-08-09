@@ -40,6 +40,23 @@ const options ={
   mapTypeControl: false,
 };
 
+function airq(lat, lng) {
+  var requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+    fetch("http://api.airvisual.com/v2/nearest_city?lat=" + lat + "8&lon=" + lng + "&key=" + process.env.REACT_APP_AIRVISUAL_API_KEY, requestOptions)
+      .then(response => response.json())
+      .then(result => {
+        console.log(result)
+        document.querySelector("#city").innerText = result.data.city
+        document.querySelector("#state").innerText = result.data.state
+        document.querySelector("#aqius").innerText = result.data.current.pollution.aqius
+        document.querySelector("#mainus").innerText = result.data.current.pollution.maincn
+      })
+      .catch(error => console.log('error', error));
+  };
+
 export default function App() {
 
   let libRef = React.useRef(libraries)
@@ -74,20 +91,7 @@ export default function App() {
   }, []);
 
   if (loadError) return "Error loading Maps";
-  if (!isLoaded) return "Loading Map";
-
-  function airq(lat, lng){
-
-    var requestOptions = {
-        method: 'GET',
-        redirect: 'follow'
-      };
-      
-      fetch("http://api.airvisual.com/v2/nearest_city?lat=" + lat + "8&lon=" + lng + "&key=" + process.env.REACT_APP_AIRVISUAL_API_KEY, requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
-    };  
+  if (!isLoaded) return "Loading Map"; 
 
   return ( 
     <div>
@@ -120,7 +124,6 @@ export default function App() {
           }}
           onClick={() => {
             setSelected(marker);
-            airq(selected.lat, selected.lng);
           }}
         />
       ))}
@@ -133,8 +136,17 @@ export default function App() {
         }}
       >
         <div>
+          {airq(selected.lat, selected.lng)}
           <h2>Check out the air  quality!</h2>
-          <p> The Air Quality is</p>
+          <div id="location">
+            <h4 id="city"></h4>
+            <h4 id="state"></h4>
+          </div>
+          <div id="score">
+            <p id="aqius"></p>
+            <p id="mainus"></p>
+            <p id="weather"></p>
+          </div>
         </div>
       </InfoWindow>
       ) : null }
