@@ -49,10 +49,38 @@ function airq(lat, lng) {
       .then(response => response.json())
       .then(result => {
         console.log(result)
-        document.querySelector("#city").innerText = result.data.city
-        document.querySelector("#state").innerText = result.data.state
-        document.querySelector("#aqius").innerText = result.data.current.pollution.aqius
-        document.querySelector("#mainus").innerText = result.data.current.pollution.maincn
+        
+        var city = result.data.city
+        var prov = result.data.state
+        var aq = result.data.current.pollution.aqius
+        var mainUS = result.data.current.pollution.mainus
+        let data = [city, prov, aq, mainUS]
+        
+        document.querySelector("#city").innerText = `City: ${city}`
+        document.querySelector("#state").innerText = `Prov: ${prov}`
+        
+        if(aq <= 50){
+          document.getElementById("aqius").style.backgroundColor="Chartreuse";
+
+        } else if (aq > 50 & aq <= 100){
+          document.getElementById("aqius").style.backgroundColor="Yellow";
+          
+        } else if (aq > 100 & aq <= 150){
+          document.getElementById("aqius").style.backgroundColor="Tomato";
+          
+        } else if (aq > 150 & aq <= 200){
+          document.getElementById("aqius").style.backgroundColor="Red";
+          
+        } else if (aq > 200 & aq <= 300){
+          document.getElementById("aqius").style.backgroundColor="Purple";
+          
+        } else if (aq > 300){
+          document.getElementById("aqius").style.backgroundColor="Maroon";
+        }
+
+        document.querySelector("#aqius").innerText = `AirQuality US: ${result.data.current.pollution.aqius}`
+        document.querySelector("#mainus").innerText = `Main US: ${result.data.current.pollution.maincn}`
+        return data
       })
       .catch(error => console.log('error', error));
   };
@@ -135,13 +163,19 @@ export default function App() {
           setSelected(null);
         }}
       >
-        <div>
-          {airq(selected.lat, selected.lng)}
-          <h2>Check out the air  quality!</h2>
+        <div id="info-box">
+
+          {
+          
+          airq(selected.lat, selected.lng)
+          
+          }
+
+          <h2>Check out the air quality!</h2>
           <div id="location">
-            <h4 id="city"></h4>
-            <h4 id="state"></h4>
-          </div>
+            <p id="city"></p>
+            <p id="state"></p>
+            </div>
           <div id="score">
             <p id="aqius"></p>
             <p id="mainus"></p>
