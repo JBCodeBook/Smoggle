@@ -13,7 +13,7 @@ The aim of this project is to be able to look up the air quality for various loc
 
 ## Technology used
 
-This application was built using HTML, CSS, Javascript. React was used to build the application as well as Google maps API. Some other APIs that were used include [@reach/combobox](https://www.npmjs.com/package/@reach/combobox), [use-places-autocomplete](https://www.npmjs.com/package/use-places-autocomplete), [@react-google-maps/api])(https://www.npmjs.com/package/@react-google-maps/api)
+This application was built using HTML, CSS, Javascript. React was used to build the application as well as Google maps API. Some other APIs that were used include [@reach/combobox](https://www.npmjs.com/package/@reach/combobox), [use-places-autocomplete](https://www.npmjs.com/package/use-places-autocomplete), [@react-google-maps/api](https://www.npmjs.com/package/@react-google-maps/api)
 
 ## Setup
 
