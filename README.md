@@ -9,11 +9,14 @@
 
 ## Project goal
 
-The aim of this project is to be able to look up the air quality for various locations. To use this app just click anywhere on map to place a marker which will reveal the air quality for that location. The map is implemented using google maps API. The air quality data is pulled from [https://www.iqair.com/about-iqair](IQAir's API)
+The aim of this project is to be able to look up the air quality for various locations. To use this app just click anywhere on map to place a marker which will reveal the air quality for that location. The map is implemented using google maps API. The air quality data is pulled from [IQAir's API](https://www.iqair.com/about-iqair)
 
 ## Technology used
 
-This application was built using HTML, CSS, Javascript. React was used to build the application as well as Google maps API. Some other APIs that were used include [@reach/combobox](https://www.npmjs.com/package/@reach/combobox), [use-places-autocomplete](https://www.npmjs.com/package/use-places-autocomplete), [@react-google-maps/api](https://www.npmjs.com/package/@react-google-maps/api)
+This application was built using HTML, CSS, Javascript. React was used to build the application as well as Google maps API. Some other APIs that were used include:
+* [@reach/combobox](https://www.npmjs.com/package/@reach/combobox)
+* [use-places-autocomplete](https://www.npmjs.com/package/use-places-autocomplete) 
+* [@react-google-maps/api](https://www.npmjs.com/package/@react-google-maps/api)
 
 ## Setup
 
