@@ -9,7 +9,7 @@
 
 ## Project goal
 
-The aim of this project is to search a location on a map so that the air quality of that location can be easily viewed. 
+The aim of this project is to be able to look up the air quality for various locations. To use this app just click anywhere on map to place a marker which will reveal the air quality for that location. The map is implemented using google maps API. The air quality data is pulled from [https://www.iqair.com/about-iqair](IQAir's API)
 
 ## Technology used
 
@@ -26,11 +26,11 @@ add in your own API KEYS using this format
     REACT_APP_GOOGLE_MAPS_API_KEY = "{your_API_KEY}"
 ```
 
-To run this project, clone this repo to your desktop and run 'npm install' to install dependencies.
+To begin, clone this repo to your desktop and run 'npm install' to install dependencies.
 
 After running 'npm install', navigate to the root folder and run 'npm start'. A browser should open and display the application.
 
-If problems exist try installing dependacies manual using the following commands:
+If problems exist try installing dependencies manual using the following commands:
 
 ```javascript
 npm install
